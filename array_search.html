@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search in Array & will be linear search</title>
+</head>
+<body>
+    <input type="text" id="searchEl" placeholder="Enter value">
+    <button onclick="searchElement()">Search Element</button>
+    <script>
+        // Returns the index of the first occurrence of a value in an array
+        //Hardcoded
+        // let data = [20, 40, 50, 70, 65, 76, 54, 88, 99]
+        // let search = 76;
+        // let index = undefined;
+        // for(let i = 0; i < data.length; i++){
+        //     // console.warn(data[i]);
+        //     if(data[i] == search){
+        //         index = i;
+        //         console.log(i)
+        //         break;
+        //     }
+        // }
+        // console.log(index);
+
+        //Dynamic
+        function searchElement(){
+        let data = [20, 40, 50, 70, 65, 76, 54, 88, 99]
+        let search = document.getElementById('searchEl').value;
+        let index = undefined;
+        for(let i = 0; i < data.length; i++){
+            // console.warn(data[i]);
+            if(data[i] === parseInt(search)){
+                index = i;
+                console.log(i)
+                break;
+            }
+        }
+        console.log(index);
+        }
+
+        // by using default method
+        // console.log(data.indexOf(search))
+    </script>
+</body>
+</html>

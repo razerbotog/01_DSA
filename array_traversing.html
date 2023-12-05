@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Traversing & </title>
+</head>
+<body>
+    <input type="text" id="element">
+    <button onclick="getElement()">getElement</button>
+    <script>
+        let data = [9, 45, 87, 67, 56, 39, 28, 82];
+        document.write("<br>")
+        for(let i = 0; i < data.length; i++){
+           
+            document.write("Element No. ", i, "  " ,data[i], '<br>')
+        }
+        // document.write('<br>');
+
+        // let i = 0;
+        // while(i < data.length){
+        //     document.write("Element No. ", i, "  " ,data[i], '<br>')
+        //     i++;
+        // }
+        // document.write('<br>');
+
+        // let score = 0;
+        // do{
+        //     document.write(data[score], '<br>');
+        //     score++;
+            
+        // }while(score < data.length)
+
+
+        // let x = prompt('Array Index NO.') ;
+        // document.write(data[x])
+
+        function getElement(){
+            let input = document.querySelector("#element")
+            let value = input.value
+            let y = data.length
+            if(value < data.length && typeof(parseInt(value)) === 'number' && value > 1){
+                alert(data[value]);
+            }else{
+                alert("Available data length" + y)
+            }
+        }
+    </script>
+</body>
+</html>

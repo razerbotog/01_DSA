@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice- traversing and inserting</title>
+  </head>
+  <body>
+    <p id="data"></p>
+    <input type="number" id="inputVal" />
+    <button id="getElement">Get Element</button>
+    <br />
+    <input type="number" id="inputVal2" />
+    <button id="pushElement">Push Element</button>
+    <br />
+    <input type="number" id="position" placeholder="position" />
+    <input type="number" id="element" placeholder="element" />
+    <button id="insertElement">Insert Element</button>
+    <script>
+      const data = [23, 45, 46, 34, 45];
+      document.getElementById("data").innerText = "ALL DATA: " + data;
+
+      // getElement
+      document.getElementById("getElement").addEventListener("click", () => {
+        // console.log('clicked')
+        let inputVal = document.getElementById("inputVal").value;
+        // console.log(inputVal)
+        alert(data[inputVal]);
+      });
+
+      // pushElement
+      document.getElementById("pushElement").addEventListener("click", () => {
+        let inputval2 = document.getElementById("inputVal2").value;
+        // console.log(inputval2);
+        data.push(parseInt(inputval2));
+        console.log(data);
+        document.getElementById("data").innerText = "ALL DATA: " + data;
+      });
+
+      // insert Element
+
+      document.getElementById("insertElement").addEventListener("click", () => {
+        let position = document.getElementById("position").value;
+        let element = document.getElementById("element").value;
+        console.table([position, element]);
+        console.log(position);
+
+        for(i = data.length - 1; i >= 0; i--){
+            if(i >= position){
+                data[i + 1] = data[i]
+                if(i == position){
+                    data[i] = element
+                }
+            }
+            console.log(data);
+        }
+        // console.log(data);
+        document.getElementById("data").innerText = "ALL DATA: " + data;
+      });
+    </script>
+  </body>
+</html>

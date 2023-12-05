@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Insterting an element to a position of an array</title>
+  </head>
+  <body>
+    <input type="text" placeholder="position" />
+    <input type="text" placeholder="element" />
+    <button onclick="insert()">Insert</button> <br />
+    <div id="result"></div>
+    <script>
+      //   let data = [3, 4, 30, 56, 78, 34, 79]
+      //   let element = '99';
+      //   let position = 3;
+      //   for(let i = data.length - 1; i >= 0;  i--){
+      //       // console.warn(data[i])
+      //       if(i >= position){
+      //           data[i + 1] =  data[i];
+      //           // shifting the current element to next index
+      //           // means we're moving the value at index i to index i + 1.
+      //           // data[8] = 588 // asssigned 588 to index 8 // // hint //
+
+      //           if( i == position){
+      //               data[i] = parseInt(element)
+      //           }
+      //       }
+      //       // console.warn(data)
+      //   }
+      //   console.warn(data)
+
+      // inserting input value
+      let data = [3, 4, 30, 56, 78, 34, 79];
+      let div = document.getElementById("result");
+      div.innerHTML = data;
+      function insert() {
+        let element = document.querySelector("[placeholder='element']").value;
+        let position = document.querySelector("[placeholder='position']").value;
+        console.table([element, position]);
+        div = document.getElementById("result");
+        for (let i = data.length - 1; i >= 0; i--) {
+          // console.warn(data[i])
+          if (i >= position) {
+            data[i + 1] = data[i];
+            // shifting the current element to next index
+            // means we're moving the value at index i to index i + 1.
+            // data[8] = 588 // asssigned 588 to index 8 // // hint //
+
+            if (i == position) {
+              data[i] = parseInt(element);
+            }
+          }
+          // console.warn(data)
+        }
+        console.warn(data);
+        div.innerHTML = data;
+      }
+
+      // by using prebuild methods
+      let items = [20, 30, 40, 70, 59, 90, 45];
+      console.log(items);
+      let i = items.splice(2, 4, 20000); // Removes elements from an array and, if necessary, inserts new elements in their place, returning the deleted elements.
+      console.log(items); //will return original array of which elements will are left
+      console.log(i); // will return a new array of which elements will are removed
+    </script>
+  </body>
+</html>

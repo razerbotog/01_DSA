@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge two array</title>
+</head>
+<body>
+    <script>
+        // github copilot suggestion
+        let arr1 = [1, 2, 3, 4, 5];
+        let arr2 = [6, 7, 8, 9, 10];
+        let arr3 = [];
+        for(let i = 0; i < arr1.length; i++){
+            arr3.push(arr1[i]);
+        }
+        for(let i = 0; i < arr2.length; i++){
+            arr3.push(arr2[i]);
+        }
+        console.log(arr3);
+
+        // by using spread operator
+        let arr4 = [...arr1, ...arr2];
+        console.log(arr4);
+
+        // by using for loop
+        let data = [3, 7, 12, 34, 56, 90];
+        let data2 = [2, 4, 6, 8, 10, 12];
+        let data3 = [];
+        for(let i = 0; i < data.length; i++){
+            data3.push(data[i]);
+            data3[i] = data[i]
+        }
+        for(let i = 0; i < data2.length; i++){
+            data3[data.length + i] = data2[i]
+        }
+        console.log("data3", data3);
+
+        // to reverse an array
+        data3.reverse()
+        console.log("reversed", data3);
+    </script>
+</body>
+</html>
