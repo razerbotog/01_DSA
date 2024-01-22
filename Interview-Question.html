@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Question</title>
+</head>
+<body>
+    <script>
+        // Interview Question
+      function test(x) {
+        console.log("top", x); // top 5 top 4 top 3 top 2 top 1 top 0
+        if (x > 0) {
+          test(x - 1);
+        }
+        console.log("bellow", x); // bellow 0 bellow 1 bellow 2 bellow 3 bellow 4 bellow 5
+      }
+      test(5);
+
+      // Why top console logged from 5 to 0 and bellow console logged from 0 to 5
+      // Because top console log called before if condition and bellow console log called after if condition
+      // So, top console log called first and bellow console log called last
+      // So, top console log called from 5 to 0 and bellow console log called from 0 to 5
+
+      //  All the test functions push into the stack during execution contest !!
+      // In stack it looks like :-
+      // Test(0)
+      // Test(1)
+      // Test(2)
+      // Test(3)
+      // Test (4)
+      // Test(5)
+      // Then pop comes in the picture
+      // So  test (0) print 0
+      // test(1) print(1)
+      // and so on….
+    </script>
+</body>
+</html>
