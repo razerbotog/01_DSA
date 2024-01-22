@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Indirect Recursion Data Structure</title>
+  </head>
+  <body>
+    <script>
+      // Indirect Recursion by Copilot
+      // function apple(x){
+      //     console.warn("called");
+      //     console.warn(x);
+      //     if(x < 10){
+      //         banana(x + 1)
+      //     }
+      // }
+      // function banana(x){
+      //     console.warn("called");
+      //     console.warn(x);
+      //     if(x < 10){
+      //         apple(x + 1)
+      //     }
+      // }
+      // let data = 0
+      // apple(data);
+
+      // A practical example
+        let money = 100;
+        let totalApple = 0;
+        let perApplePrice = 10;
+        function buyApple(x) {
+          if (x > 0) {
+            buyMore(x);
+          } else {
+            console.log(
+              "I don't have more money, I brought " + totalApple + " apples"
+            );
+          }
+        }
+        function buyMore(x) {
+          console.log("I have " + totalApple + " apples and " + x + "Rs left");
+          totalApple++;
+          // totalApple = totalApple + 1
+          buyApple(x - perApplePrice);
+        }
+        buyApple(money);
+
+      
+    </script>
+  </body>
+</html>
