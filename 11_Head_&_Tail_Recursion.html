@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Head & Tail Recursion</title>
+  </head>
+  <body>
+
+    <script>
+      // call stack
+      // The call stack is a crucial component in programming that manages the flow of function calls. When a function is called, a new frame is created on the top of the stack, containing information about the function call. As functions execute, new frames are pushed onto the stack, and when functions complete, their frames are popped off. This stack follows a last-in, first-out (LIFO) order. Recursive calls add new frames to the stack, and the stack unwinds as functions complete. If the stack becomes too large due to excessive function calls or infinite recursion, it can lead to a stack overflow. The call stack plays a vital role in controlling the program's execution and managing the memory allocated for function calls.
+      // function colors() {
+      //   let data = 78
+      //   console.log("colors", data);
+      // }
+      // function days() {
+      //   colors();
+      // }
+      // function fruits() {
+      //   days();
+      // }
+      // function topFunction() {
+      //   fruits();
+      // }
+      // topFunction();
+
+      
+      // Head & Tail Recursion
+      // Head and tail recursion are terms that describe the position of a recursive call within a function. In head recursion, the recursive call is at the beginning of the function, and the function performs its operations before making the call. In contrast, tail recursion has the recursive call as the last operation, immediately returning the result without further processing. Head recursion is intuitive but may require more stack space, while tail recursion is often optimized by compilers as it can be transformed into an iterative form, potentially reducing the risk of a stack overflow. Both have their use cases, and the choice depends on the specific requirements of the problem and the language or compiler being used.
+      function test(x){
+        console.log(x); // 5 4 3 2 1 0
+        if (x > 0){
+          test( x - 1)
+        }
+        console.log(x); // 0 1 2 3 4 5
+      };
+      test(5);
+
+    </script>
+  </body>
+</html>
