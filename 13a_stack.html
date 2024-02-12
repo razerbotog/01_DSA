@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stack with button and Input</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter your input" id="newElement">
+    <button onclick="push()">Push!</button>
+    <br>
+    <br>
+    <button onclick="pop()">Pop!</button>
+    <br>
+    <br>
+    <label for="">Current Array</label>
+    <input type="text" placeholder="" id="data" >
+    <script>
+        let data = []
+        document.querySelector("#data").value = data
+        
+        console.log("currentData", data);
+        let currentSize = data.length
+        function push(){
+            let element = document.querySelector("#newElement").value
+            data[currentSize] = element
+            currentSize++
+            document.querySelector("#data").value = data
+            console.log("Element pushed");
+            console.log("currentData", data);
+        }
+        function pop(){
+            if (currentSize > 0) {
+                data.length = currentSize - 1
+                currentSize--
+                document.querySelector("#data").value = data
+                console.log("Element poped");
+                 console.log("currentData", data);
+            }
+        }
+    </script>
+</body>
+</html>
