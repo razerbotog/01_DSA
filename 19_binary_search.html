@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search</title>
+</head>
+<body>
+    <!-- Notes -->
+    <!-- Binary search only works with sorted array -->
+    <!-- Iterative Approach -->
+    <script>
+        let data = [5,9,13,17];
+        let find = 13;
+        let start = 0  //start index
+        let end = data.length - 1 //end index
+        let position = undefined;
+
+        while (start <= end) {
+            let mid = Math.floor((start + end) / 2) //mid index
+            console.log("mid: ", (start + end) / 2, mid);
+            if (data[mid] === find) {
+                position = mid;
+                break;
+            }else if (data[mid] < find) {
+                start = mid + 1
+                console.log("start: ", start);
+            } else{
+                end = mid - 1
+                console.log("end: ", end);
+            }
+        }
+        console.log("position: ",position);
+
+    </script>
+    
+</body>
+</html>

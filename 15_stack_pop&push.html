@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Remove and add element object method</title>
+  </head>
+  <body>
+    <script>
+      class Stack {
+        item = [];
+        currentLength;
+        maxSize;
+        constructor(size) {
+          (this.currentLength = this.item.length), (this.maxSize = size);
+        }
+        push(e) {
+          if (this.currentLength < this.maxSize) {
+            this.item[this.currentLength] = e;
+            this.currentLength++;
+          } else {
+            console.log("Stack is full");
+            alert("Maxsize reached");
+          }
+        }
+        pop() {
+          if (this.item.length > 0) {
+            console.log(this.item);
+            let lastItem = this.item[this.currentLength - 1];
+            console.log(lastItem + " is removed from the stack.");
+            this.currentLength--;
+            this.item.length = this.currentLength;
+            return lastItem
+          } else {
+            console.log("Stack is already empty");
+            alert("Minimum reached");
+          }
+        }
+        display() {
+          console.log(this.item);
+        }
+        reverse(str){
+            let arr = str.split("")
+            // console.log(arr);
+            // arr.forEach(e => this.push(e)) //if we dont use 2 below lines
+
+            this.item = [...arr]
+            this.currentLength = this.item.length
+
+            let reverseArr = []
+
+            // 1st approach
+            arr.forEach(element => {
+              console.log(element);
+              const returnEL = this.pop()
+              console.log(returnEL);
+              reverseArr = [...reverseArr, returnEL]
+            });
+            console.log(reverseArr.join('').toLowerCase());
+
+            // 2nd approach
+            // for(let i = 0; this.currentLength > 0; i++){
+            //     const returnEL = this.pop()
+            //     reverseArr = [...reverseArr, returnEL]
+            //     // this.item[i] = returnEL
+            //     // console.log(returnEL);
+            // }
+            // console.log(reverseArr.join('').toLowerCase());
+            console.log(this.item);
+        }
+      }
+      const stack1 = new Stack(5);
+      stack1.reverse("Arif")
+    </script>
+  </body>
+</html>

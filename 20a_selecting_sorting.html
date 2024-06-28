@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selection Sorting(in this descending)</title>
+</head>
+<body>
+    
+    <script>
+        let data = [20, 12, 53, 3];
+        function selectionSortDescending(data) {
+            let minIndex;
+            for (let i = 0; i < data.length; i++) {
+                minIndex = i;
+                for (let j = i+1 ; j < data.length; j++) {
+                     if (data[j] > data[i]) {
+                        minIndex = j
+                     }                   
+                }
+                const temp = data[minIndex];
+                data[minIndex] = data[i]
+                data[i] = temp
+            }
+        }
+        selectionSortDescending(data)
+        console.log(data);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Linear Search</title>
+  </head>
+  <body>
+    <p></p>
+    <input type="text" placeholder="Search" />
+    <button onclick="linearSearch()">Search</button>
+    <!-- Interview  Q-->
+    <!-- what is search & search algorithm? -->
+    <!-- The Complexity of linear search & Binary search as well? -->
+    <script>
+      let data = [30, 12, 34, 64, 5, 34, 87, 98];
+      document.querySelector("p").textContent = data;
+      // default methods
+      const x = data.findIndex((e) => e === find);
+      const y = data.find((e) => e === find);
+
+      function linearSearch() {
+        let find = document.querySelector("input").value;
+        console.log("find", find);
+        let pos;
+        for (let i = 0; i < data.length; i++) {
+          if (data[i] == find) {
+            pos = i;
+            console.log("pos", pos);
+            break;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

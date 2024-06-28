@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Palindrome</title>
+</head>
+<body>
+    
+    <script>
+
+        function palindrome(data) {
+            let start = 0 //start index
+            let end = data.length - 1 //last index
+            let result = true
+            while(end > start){
+                if (data[start] != data[end]) {
+                    result = false;
+                }
+                start++
+                end--
+            }
+            return result
+        }
+        let str="level"
+        let str1="hello"
+        console.log(palindrome(str));
+        console.log(palindrome(str1));
+    </script>
+</body>
+</html>

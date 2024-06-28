@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map Data Structure</title>
+  </head>
+  <body>
+    <!-- A Map holds key-value pairs where the keys can be any datatype. A Map
+    remembers the original insertion order of the keys. -->
+    <script>
+      let data = new Map([
+        ["name", "Anil"],
+        [true, "Boolkey"],
+        [24, "Number"],
+      ]);
+      data.set("colors", "red"); //to add new entry
+      console.log(data.size); // to get the size of an Map Object
+      console.log(data.get("name")); // to get the value of a key
+      console.log(data.has("name")); // to check the passing parameter is available in that Map or not.
+      // data.clear() // to clear the Map
+      console.log(data);
+
+      for (x of data) {
+        console.log("Loop", x);
+      }
+      data.forEach((key, value) => {
+        console.log(key, value);
+      });
+      data.delete("name");
+      console.log("data", data); //to delete
+    </script>
+  </body>
+</html>

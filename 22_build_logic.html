@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logic Building</title>
+</head>
+<body>
+    <!-- Understand Complete Problem.
+    Find Solution in General Way.
+    Break the Problem in Parts.
+    Think Coding Solution.
+    Re-Analyse Solution.
+    Then Write Code.
+    Example -->
+    
+    <script>
+        let data = [10, 19, 6, 18, 45, 68, 100]
+        let evenArr = []
+        let evenArrLength = 0
+        for (let i = 0; i < data.length; i++) {
+            if (data[i] % 2 == 0) {
+                    evenArr.push(2 * data[i])
+                    evenArrLength++    
+            }
+        }
+        console.log('evenArr', evenArr);
+        console.log('evenArrLength', evenArrLength);
+    </script>
+</body>
+</html>

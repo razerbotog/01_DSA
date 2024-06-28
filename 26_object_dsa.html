@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA in object</title>
+</head>
+<body>
+    
+    <script>
+        let data = {
+            name: "anil",
+            age: 20,
+            email: 'anil@gmail.com'
+        }
+        delete data.name // removes a property from an object
+        console.log(data);
+
+        for(x in data){
+            console.log(data[x]);
+        } // to loop over an object.
+
+        console.log(Object.keys(data));
+        console.log(Object.entries(data)); // returns an array of a given object's own enumerable string-keyed property key-value pairs.
+    </script>
+</body>
+</html>

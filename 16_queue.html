@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queue in javascript</title>
+  </head>
+  <body>
+    <h1>Queue in Javascript</h1>
+    <label for="input1">Enter element</label>
+    <input type="text" id="input1" placeholder="34">
+    <button id="enqueue" onclick=handleEnqueue()>Add To Queue</button>
+    <button id="dequeue" onclick=handleDequeue()>Dequeue</button>
+    <script>
+    // Building logic first in first out
+      let queue = [];
+      let currentSize = queue.length;
+      let maxSize = 5;
+
+    //   to add to que
+      function enqueue(v) {
+        if (currentSize < maxSize) {
+          queue[currentSize] = v;
+          currentSize++;
+        } else {
+          alert("Queue is full, max size reached");
+        }
+        printQueue("enqueue")
+      }
+
+      //   to remove from que
+      function dequeue(){
+        // TODO: Add validatiion if queue is already empty
+        if (currentSize == 0){
+            alert("Queue is already empty")
+            return
+        }
+        for (let index = 0; index < queue.length; index++) {
+            queue[index] = queue[index + 1]
+            
+        }
+
+        // removing undefined  value at the end of array
+        currentSize--
+        queue.length = currentSize
+
+        printQueue("dequeue")
+      }
+      function frontValue(){
+        if (currentSize > 0) {
+            console.log(queue[0]);
+        } else {
+          alert("Queue is empty") 
+        }
+      }
+      function rearValue(){
+        if (currentSize > 0) {
+            console.log(queue[currentSize - 1]);
+        } else {
+          alert("Queue is empty") 
+        }
+      }
+
+      // a common function for modular code practice but i am not using  it here.
+      function isEmpty() {
+        return (queue.length == 0);
+        // return (currentSize == 0); //we can use current size too for validation
+      }
+
+      function  printQueue(from) {
+        console.log(from, queue);
+      }
+    //   enqueue(12);
+    //   enqueue(123);
+    //   enqueue(45);
+    //   enqueue(23);
+    //   dequeue();
+
+    // doing with btn
+    function handleEnqueue (){
+        console.log("btnclkicked");
+        let value = document.querySelector("#input1").value
+        console.log(value);
+        enqueue(parseInt(value))
+
+    }
+    function handleDequeue (){
+        console.log("btnclkicked");
+        dequeue()
+    }
+
+    </script>
+  </body>
+</html>

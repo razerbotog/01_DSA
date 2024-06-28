@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse  String With Stack</title>
+</head>
+<body>
+    
+    <script>
+        let data = [] // assuming or creating stack
+        let currentSize  = data.length
+            
+        function push(newVal){
+            data[currentSize] = newVal
+            currentSize++
+        }
+        function pop(){
+           let lastRemoveItem = data[currentSize - 1]
+            currentSize--
+            data.length = currentSize
+            // console.log(lastRemoveItem);
+            return lastRemoveItem
+        }
+
+        function reverseStr(item){
+            // console.log(item);
+            for (let index = 0; index < item.length; index++) {
+                push(item[index])
+            }
+            for (let index = 0; index < item.length; index++) {
+                item[index] = pop()
+            }
+            console.log(item.join(''));
+            return item
+        }
+
+        let str = "Anil"
+        str = str.split("")
+        // console.log(str);
+        reverseStr(str);
+        // console.log(str);
+        console.log(data) // stack got cleared bcoz we pop all the elements
+    </script>
+</body>
+</html>
