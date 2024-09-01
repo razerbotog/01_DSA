@@ -30,7 +30,6 @@
                 let counter = 0;
                 let currentNode = this.head
                 while (counter < this.size) {
-                    console.log(currentNode);
                     currentNode = currentNode.next
                     counter++
                 }
@@ -49,7 +48,59 @@
                   let nextNode = lead.next.next;
                   lead.next = nextNode;
                 }
-            } 
+            }
+            insertNode(index, value) {
+                let counter = 1
+                let currentNode = this.head
+                while (counter > index) {
+                    counter++;
+                    currentNode = currentNode.next
+                }
+                let nextNode = currentNode.next
+                currentNode.next = {
+                    value,
+                    next: nextNode
+                }
+            }
+            searchNodeByValue(data){
+                let result = undefined;
+                let leadNode = this.head //current node
+                let loop = true
+                while(loop){
+                    loop = !!leadNode
+                    if (leadNode.value === data) {
+                        result = leadNode
+                        // console.log(result);
+                        loop = false
+                        return
+                    }else if(leadNode.next === null){
+                        loop = false
+                    }
+                    leadNode = leadNode.next
+                }
+                result = "not found";
+                // console.log(result);
+                return result;
+                
+            }
+            searchNodeByPosition(index){
+                let result = undefined;
+                let counter = 1
+                let currentNode = this.head
+                while(counter <= index){
+                    if (counter === index) {
+                        result = currentNode ? currentNode : "index result didn't match"
+                        console.log(result);
+                        return result
+                    }
+                    counter++
+                    currentNode = currentNode.next
+                }
+                result = "index result didn't match"
+                console.log(result);
+                return result;
+            }
+            
         }
 
         let list = new List(200);
@@ -59,6 +110,10 @@
         list.appendNode(800)
         list.traversing()
         // list.deleteNode(4)
+        list.insertNode(2, 4000)
+        list.searchNodeByValue(200)
+        list.searchNodeByPosition(6)
+
     </script>
 </body>
 </html>
