@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Binary Search Tree</title>
+</head>
+<body>
+    <script>
+        class Node{
+            constructor(val){
+                this.value = val;
+                this.left = null;
+                this.right = null;
+            }
+        }
+        class BSTree {
+            constructor (){
+                this.root = null;
+                
+            }
+            isTreeEmpty(){
+                // console.log(this.root === null);
+                return this.root === null
+            }
+            makeTree(val){
+                let newNode = new Node(val)
+                if (this.isTreeEmpty()) {
+                    this.root = newNode    
+                } else {
+                    this.insertNode(this.root, newNode)
+                }
+                
+            }
+            insertNode(root, newNode){
+                if (root.value > newNode.value) {
+                    if (root.left === null) {
+                        root.left = newNode
+                    } else {
+                        this.insertNode(root.left, newNode)
+                    }
+                }else if (root.value < newNode.value) {
+                    if (root.right === null) {
+                        root.right = newNode
+                    } else {
+                        this.insertNode(root.right, newNode)
+                    }
+                    
+                }
+            }
+            search(root, val){
+                if (root == null) {
+                    console.log(false);
+                    return false
+                } else if (root.value === val) {
+                    console.log(true);
+                    return true
+                } else if (root.value > val) {
+                    return  this.search(root.left, val)
+                } else if(root.value < val) {
+                    return  this.search(root.right, val)
+                }
+                console.log(false);
+                return false
+            }
+            preOrder(root){
+                if (root !== null) {
+                    console.log("preOrder", root.value);
+                    this.preOrder(root.left)
+                    this.preOrder(root.right) 
+                }
+            }
+            inOrder(root){
+                if (root !== null) {
+                    this.inOrder(root.left)
+                    console.log("inOrder", root.value);
+                    this.inOrder(root.right) 
+                }
+            }
+            postOrder(root){
+                if (root !== null) {
+                    this.postOrder(root.left)
+                    this.postOrder(root.right) 
+                    console.log("postOrder", root.value);
+                }
+            }
+            breadthFirstSearchTraversing(root){
+                let queue = []
+                queue.push(root)
+                while(queue.length){
+                    let current = queue.shift()
+                    if(current.left){
+                        queue.push(current.left)
+                    }
+                    if(current.right){
+                       queue.push(current.right)
+                    }
+                    console.log(current.value);
+                }
+            }
+            minValue(root){
+                if (!root.left) {
+                    return root.value
+                }
+                else{
+                    return this.minValue(root.left)
+                }
+            }
+            maxValue(root){
+                if (!root.right) {
+                    return root.value
+                }
+                else{
+                    return this.maxValue(root.right)
+                }
+            }
+            removeNode(value){
+                this.root = this.removeNodeHelper(this.root, value)
+            }
+            removeNodeHelper(root, value){
+                if (root == null) {
+                    return "root node empty"
+                }
+                if (value < root.value) {
+                    root.left = this.removeNodeHelper(root.left, value)
+                }else if (value > root.value) {
+                    root.right = this.removeNodeHelper(root.right, value)
+                } else  {
+                    if (!root.left && !root.right) {
+                        return null // The node has no children, so it's removed by returning null.
+                    }else if (!root.left) {
+                        return root.right  // The node has only a right child, so replace it with that child.
+                    }else if(!root.right){
+                        return root.left // The node has only a left child, so replace it with that child.
+                    }
+                    //Node with Two Children:
+                    root.value = this.minValue(root.right) //the function finds the smallest value in the right subtree 
+                    root.right = this.removeNodeHelper(root.right, root.value) // removed that smallest value to avoid dubplication
+                }
+                return root
+            }
+            log(){
+                console.log("Main root", this.root);
+            }
+            
+        }
+        let bst = new BSTree()
+        bst.makeTree(20)
+        bst.makeTree(10)
+        bst.makeTree(11)
+        bst.makeTree(30)
+        bst.makeTree(5)
+        // bst.isTreeEmpty()
+        bst.search(bst.root ,30)
+
+        // depth first search
+        bst.preOrder(bst.root)
+        bst.inOrder(bst.root)
+        bst.postOrder(bst.root)
+
+        // breadth first search
+        bst.breadthFirstSearchTraversing(bst.root)
+
+        console.log("min value", bst.minValue(bst.root));
+        console.log("max value", bst.maxValue(bst.root));
+        bst.removeNode(10)
+        bst.log()
+    </script>
+</body>
+</html>
